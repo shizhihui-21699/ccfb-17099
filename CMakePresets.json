@@ -1,0 +1,43 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 20,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "host-debug",
+      "displayName": "Portable scanner debug build",
+      "binaryDir": "${sourceDir}/build-host",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "DLLGUARD_BUILD_RUNTIME": "OFF",
+        "DLLGUARD_BUILD_EXAMPLES": "OFF"
+      }
+    },
+    {
+      "name": "windows-x64",
+      "displayName": "Windows x64 with scanner and DllGuard runtime",
+      "generator": "Visual Studio 17 2022",
+      "architecture": "x64",
+      "binaryDir": "${sourceDir}/build-windows",
+      "cacheVariables": {
+        "DLLGUARD_BUILD_SCANNER": "ON",
+        "DLLGUARD_BUILD_RUNTIME": "ON",
+        "DLLGUARD_BUILD_EXAMPLES": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "host-debug",
+      "configurePreset": "host-debug"
+    },
+    {
+      "name": "windows-x64-release",
+      "configurePreset": "windows-x64",
+      "configuration": "Release"
+    }
+  ]
+}

@@ -16,3 +16,10 @@ node_modules/
 __pycache__/
 .venv/
 venv/
+
+# CMake / scanner outputs
+build/
+build-*/
+out/
+dllscan-report.*
+*.sarif
